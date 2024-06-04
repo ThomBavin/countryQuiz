@@ -24,11 +24,11 @@ async function loadJSON(url) {
   }
 }
 function oneC() {
-  let choosedCountry = getRandomInt(257);
+  let choosedCountry = getRandomInt(246);
   return choosedCountry;
 }
 function twoC() {
-  let choosedCountry2 = getRandomInt(257);
+  let choosedCountry2 = getRandomInt(246);
   return choosedCountry2;
 }
 // let test = loadJSON(apiUrl);
@@ -67,34 +67,37 @@ function afficherCountryVal(jsonData) {
 
 //thx gpt
 
-//button for guessing witch country are the flag
 function d() {
   return getRandomInt(2);
 }
 
-randomC = d();
 // combien de pays dans le jeux
 //combien de pays dans les question 2 ou 3 ou 5?
 //thx gpt
 window.addEventListener("load", main);
 //
 
-async function main() {
+async function main(newValue) {
+  randomC = d();
   const apiUrl = "./codes.json";
   const jsonData = await loadJSON(apiUrl);
   if (jsonData) {
+    if (newValue) {
+      number1 = oneC();
+      number2 = twoC();
+      if (number1 == number2) {
+        number1 = oneC();
+        number2 = twoC();
+      }
+    }
     let thisCountry = afficherCountry(jsonData);
     let thisCountry2 = afficherCountry2(jsonData);
     let [valueCountry, valueCountry2] = afficherCountryVal(jsonData);
-    let apiCountryFlag = `./CountryFlag/${thisCountry}.png`;
 
-    console.log(apiCountryFlag);
-
-    let apiCountryFlag2 = `./CountryFlag/${thisCountry2}.png`;
-
-    console.log(apiCountryFlag2);
-    console.log(valueCountry);
-    console.log(valueCountry2);
+    let counterHtml = document.createElement("p");
+    counterHtml.innerHTML = `Country check : ${counterR}`;
+    counterHtml.className = "CounterSet";
+    document.querySelector(".counter").appendChild(counterHtml);
 
     function testR() {
       if (randomC == 0) {
@@ -104,6 +107,26 @@ async function main() {
         let resultat = valueCountry2;
         document.getElementById("reponse").innerHTML = ` ${resultat}`;
       }
+
+      let nextButton = document.createElement("button");
+      nextButton.className = "nextB";
+      nextButton.textContent = "next";
+      document.querySelector("#reponse").appendChild(nextButton);
+      let theNButton = document.querySelector(".nextB");
+      btnR.remove();
+      btnW.remove();
+      function newSett() {
+        theNButton.remove();
+        document.querySelector("#reponse").innerHTML = "";
+        document.querySelector(".imgToC").remove();
+        document.querySelector(".CounterSet").remove();
+        console.clear();
+
+        main(true);
+      }
+
+      theNButton.addEventListener("click", newSett);
+
       btnR.style.color = "green";
       btnW.style.color = "red";
 
@@ -118,12 +141,33 @@ async function main() {
 
     function testW() {
       if (randomC == 0) {
-        let result = valueCountry;
-        document.getElementById("reponse").innerHTML = `it was ${result}`;
+        let resultat = valueCountry;
+        document.getElementById("reponse").innerHTML = `it was ${resultat}`;
       } else {
-        let result = valueCountry2;
-        document.getElementById("reponse").innerHTML = `it was ${result}`;
+        let resultat = valueCountry2;
+        document.getElementById(
+          "reponse"
+        ).innerHTML = `<p>it was ${resultat} <p>`;
       }
+
+      let nextButton = document.createElement("button");
+      nextButton.className = "nextB";
+      nextButton.textContent = "suivant";
+      document.querySelector("#reponse").appendChild(nextButton);
+      let theNButton = document.querySelector(".nextB");
+      btnR.remove();
+      btnW.remove();
+      function newSett() {
+        theNButton.remove();
+        document.querySelector("#reponse").innerHTML = "";
+        document.querySelector(".imgToC").remove();
+        document.querySelector(".CounterSet").remove();
+        console.clear();
+        main(true);
+      }
+
+      theNButton.addEventListener("click", newSett);
+
       btnR.style.color = "green";
       btnW.style.color = "red";
 
@@ -152,6 +196,8 @@ async function main() {
 
       var imagejavascript = document.createElement("img");
       imagejavascript.src = `./CountryFlag/${thisCountry}.png`;
+      imagejavascript.className = "imgToC";
+
       document.body.appendChild(imagejavascript);
       imagejavascript.height = "300";
 
@@ -173,10 +219,28 @@ async function main() {
       var imagejavascript = document.createElement("img");
       imagejavascript.src = `./CountryFlag/${thisCountry2}.png`;
       imagejavascript.height = "300";
+      imagejavascript.className = "imgToC";
       document.body.appendChild(imagejavascript);
 
       btnR.addEventListener("click", testR);
       btnW.addEventListener("click", testW);
+    }
+    if (valueCountry === undefined || valueCountry2 === undefined) {
+      if (document.querySelector(".btnW")) {
+        document.querySelector(".btnW").remove();
+      }
+      if (document.querySelector(".btnR")) {
+        document.querySelector(".btnR").remove();
+      }
+      if (document.querySelector(".CounterSet")) {
+        document.querySelector(".CounterSet").remove();
+      }
+
+      if (document.querySelector(".imgToC")) {
+        document.querySelector(".imgToC").remove();
+      }
+      console.clear();
+      main(true);
     }
   }
 }
