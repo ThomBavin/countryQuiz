@@ -119,7 +119,7 @@ async function main(newValue) {
       btnW.remove();
       function newSett() {
         theNButton.remove();
-        document.querySelector("#reponse").innerHTML = "";
+        document.querySelector("#reponse").textContent = "";
         document.querySelector(".imgToC").remove();
         document.querySelector(".CounterSet").remove();
         document.querySelector(".jump").remove();
@@ -207,7 +207,7 @@ async function main(newValue) {
       imagejavascript.src = `./CountryFlag/${thisCountry}.png`;
       imagejavascript.className = "imgToC";
 
-      document.querySelector("#box").appendChild(imagejavascript);
+      document.querySelector("#Container").appendChild(imagejavascript);
 
       btnR.addEventListener("click", testR, true);
       btnW.addEventListener("click", testW);
@@ -233,7 +233,7 @@ async function main(newValue) {
       var br = document.createElement("br");
       br.className = "jump";
       document.querySelector("#box").appendChild(br);
-      document.querySelector("#box").appendChild(imagejavascript);
+      document.querySelector("#Container").appendChild(imagejavascript);
 
       btnR.addEventListener("click", testR);
       btnW.addEventListener("click", testW);
