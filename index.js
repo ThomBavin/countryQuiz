@@ -86,6 +86,9 @@ function readyButton() {
 }
 
 async function main(newValue) {
+  if (document.querySelector(".boxInfo")) {
+    document.querySelector(".boxInfo").remove();
+  }
   if (document.querySelector(".CountSet")) {
     document.querySelector(".CountSet").remove();
   }
@@ -116,17 +119,38 @@ async function main(newValue) {
     document.querySelector(".counter").appendChild(counterHtml);
     let clicked = false;
     //ici countdown
+    let alerted10;
+    let alerted7;
+    let alerted5;
+    let alerted3;
+
     let countdown = 15;
     if (counterR >= 10) {
+      if (alerted10 !== true) {
+        alerted10 = true;
+        alert("More than 10 point = 10 SEC");
+      }
       countdown = 10;
 
       if (counterR >= 15) {
+        if (alerted7 !== true) {
+          alerted7 = true;
+          alert("More than 15 point = 7 SEC");
+        }
         countdown = 7;
 
         if (counterR >= 20) {
+          if (alerted5 !== true) {
+            alerted5 = true;
+            alert("More than 20 point = 5 SEC");
+          }
           countdown = 5;
 
           if (counterR >= 30) {
+            if (alerted3 !== true) {
+              alerted3 = true;
+              alert("More than 30 point = 3 SEC");
+            }
             countdown = 3;
           }
         }
@@ -134,7 +158,7 @@ async function main(newValue) {
     }
     function startCountdown(seconds) {
       let counter = seconds;
-      let countdownHtml = document.createElement("p");
+      let countdownHtml = document.createElement("h1");
 
       countdownHtml.className = "CountSet";
       document.getElementById("box").appendChild(countdownHtml);

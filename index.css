@@ -4,9 +4,7 @@
 
   font-size: medium;
 }
-ul li {
-  list-style-position: inside;
-}
+
 body {
   text-align: center;
 
@@ -68,10 +66,19 @@ button {
 }
 .boxInfo {
   margin: auto;
-  width: 10vw;
+  width: 20vw;
 
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   padding: 1vh;
   text-align: center;
+}
+.CountSet {
+  font-size: larger;
+}
+.footer {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
