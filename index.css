@@ -2,21 +2,40 @@
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   list-style: none;
+  font-size: medium;
 }
 
 body {
   text-align: center;
 
-  color: white;
+  color: black;
 
-  background-color: rgb(38, 38, 38);
+  background: linear-gradient(-45deg, #222222, #ff0000, #9000ff, #eeff00);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+  height: 100vh;
 }
-
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 #box {
-  border: 6px solid black;
+  margin: auto;
+  width: 60vw;
+
   border-radius: 20px;
-  background-color: rgb(73, 73, 73);
-  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.774);
+  padding: 1vh;
+  /* margin-top: 1vh;
+  margin-left: 10vh;
+  margin-right: 10vh; */
 }
 #reponse {
   visibility: hidden;
@@ -24,13 +43,18 @@ body {
   margin: 10px auto 0;
 }
 button {
-  padding: 50px;
+  padding: 30px;
   margin: 20px;
   background-color: black;
   color: white;
-  border: 6px solid black;
-  border-radius: 50px;
+  border: 1px solid black;
+  border-radius: 1vw;
+  color: white;
 }
 .imgToC {
-  border-radius: 30px;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  width: 30vw;
+  margin: 5vh;
 }

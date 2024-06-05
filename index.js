@@ -24,11 +24,11 @@ async function loadJSON(url) {
   }
 }
 function oneC() {
-  let choosedCountry = getRandomInt(246);
+  let choosedCountry = getRandomInt(245);
   return choosedCountry;
 }
 function twoC() {
-  let choosedCountry2 = getRandomInt(246);
+  let choosedCountry2 = getRandomInt(245);
   return choosedCountry2;
 }
 // let test = loadJSON(apiUrl);
@@ -90,6 +90,7 @@ async function main(newValue) {
         number2 = twoC();
       }
     }
+
     let thisCountry = afficherCountry(jsonData);
     let thisCountry2 = afficherCountry2(jsonData);
     let [valueCountry, valueCountry2] = afficherCountryVal(jsonData);
@@ -97,6 +98,7 @@ async function main(newValue) {
     let counterHtml = document.createElement("p");
     counterHtml.innerHTML = `Country check : ${counterR}`;
     counterHtml.className = "CounterSet";
+
     document.querySelector(".counter").appendChild(counterHtml);
 
     function testR() {
@@ -120,6 +122,8 @@ async function main(newValue) {
         document.querySelector("#reponse").innerHTML = "";
         document.querySelector(".imgToC").remove();
         document.querySelector(".CounterSet").remove();
+        document.querySelector(".jump").remove();
+
         console.clear();
 
         main(true);
@@ -134,7 +138,7 @@ async function main(newValue) {
       document.getElementById("reponse").style.color = "green";
       counterR++;
       console.log(`score :${counterR}`);
-      btnAll.style.visibility = "hidden";
+
       // button suivant sinon compteur serv a rien
       return;
     }
@@ -159,9 +163,11 @@ async function main(newValue) {
       btnW.remove();
       function newSett() {
         theNButton.remove();
-        document.querySelector("#reponse").innerHTML = "";
+        document.querySelector("#reponse").textContent = "";
         document.querySelector(".imgToC").remove();
         document.querySelector(".CounterSet").remove();
+        document.querySelector(".jump").remove();
+
         console.clear();
         main(true);
       }
@@ -175,7 +181,7 @@ async function main(newValue) {
       document.getElementById("reponse").style.color = "red";
       counterR--;
       console.log(`score :${counterR}`);
-      btnAll.style.visibility = "hidden";
+
       // button suivant
       return;
     }
@@ -183,7 +189,7 @@ async function main(newValue) {
     let box = document.querySelector("#box");
     if (randomC === 0) {
       const newButtonR = document.createElement("button");
-      newButtonR.className = "btnR ok";
+      newButtonR.className = "btnR";
       newButtonR.textContent = valueCountry;
       box.appendChild(newButtonR);
 
@@ -194,18 +200,21 @@ async function main(newValue) {
       btnR = document.querySelector(".btnR");
       btnW = document.querySelector(".btnW");
 
+      var br = document.createElement("br");
+      br.className = "jump";
+      document.querySelector("#box").appendChild(br);
       var imagejavascript = document.createElement("img");
       imagejavascript.src = `./CountryFlag/${thisCountry}.png`;
       imagejavascript.className = "imgToC";
 
-      document.body.appendChild(imagejavascript);
-      imagejavascript.height = "300";
+      document.querySelector("#box").appendChild(imagejavascript);
 
       btnR.addEventListener("click", testR, true);
       btnW.addEventListener("click", testW);
     } else {
       const newButtonW = document.createElement("button");
       newButtonW.className = "btnW";
+
       newButtonW.textContent = valueCountry;
       box.appendChild(newButtonW);
       const newButtonR = document.createElement("button");
@@ -220,7 +229,11 @@ async function main(newValue) {
       imagejavascript.src = `./CountryFlag/${thisCountry2}.png`;
       imagejavascript.height = "300";
       imagejavascript.className = "imgToC";
-      document.body.appendChild(imagejavascript);
+
+      var br = document.createElement("br");
+      br.className = "jump";
+      document.querySelector("#box").appendChild(br);
+      document.querySelector("#box").appendChild(imagejavascript);
 
       btnR.addEventListener("click", testR);
       btnW.addEventListener("click", testW);
@@ -240,6 +253,7 @@ async function main(newValue) {
         document.querySelector(".imgToC").remove();
       }
       console.clear();
+      console.log("erreur de undifined");
       main(true);
     }
   }
