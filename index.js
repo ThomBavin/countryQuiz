@@ -74,10 +74,24 @@ function d() {
 // combien de pays dans le jeux
 //combien de pays dans les question 2 ou 3 ou 5?
 //thx gpt
-window.addEventListener("load", main);
+window.addEventListener("load", readyButton);
 //
+function readyButton() {
+  startbutton = document.createElement("button");
+  startbutton.textContent = "Start";
+  startbutton.className = "ReadyTrue";
+  document.querySelector("#box").appendChild(startbutton);
+
+  document.querySelector(".ReadyTrue").addEventListener("click", main);
+}
 
 async function main(newValue) {
+  if (document.querySelector(".CountSet")) {
+    document.querySelector(".CountSet").remove();
+  }
+  if (document.querySelector(".ReadyTrue")) {
+    document.querySelector(".ReadyTrue").remove();
+  }
   randomC = d();
   const apiUrl = "./codes.json";
   const jsonData = await loadJSON(apiUrl);
@@ -100,8 +114,48 @@ async function main(newValue) {
     counterHtml.className = "CounterSet";
 
     document.querySelector(".counter").appendChild(counterHtml);
+    let clicked = false;
+    //ici countdown
+    let countdown = 15;
+    if (counterR >= 10) {
+      countdown = 10;
 
+      if (counterR >= 15) {
+        countdown = 7;
+
+        if (counterR >= 20) {
+          countdown = 5;
+
+          if (counterR >= 30) {
+            countdown = 3;
+          }
+        }
+      }
+    }
+    function startCountdown(seconds) {
+      let counter = seconds;
+      let countdownHtml = document.createElement("p");
+
+      countdownHtml.className = "CountSet";
+      document.getElementById("box").appendChild(countdownHtml);
+
+      const interval = setInterval(() => {
+        if (clicked == false) {
+          countdownHtml.innerHTML = counter;
+          counter--;
+          if (counter < 0) {
+            clearInterval(interval);
+            countdownHtml.innerHTML = "TIMEOUT!";
+            testW();
+          }
+        } else {
+          clearInterval(interval);
+        }
+      }, 1000);
+    }
+    startCountdown(countdown);
     function testR() {
+      clicked = true;
       if (randomC == 0) {
         let resultat = valueCountry;
         document.getElementById("reponse").innerHTML = ` ${resultat}`;
@@ -144,6 +198,7 @@ async function main(newValue) {
     }
 
     function testW() {
+      clicked = true;
       if (randomC == 0) {
         let resultat = valueCountry;
         document.getElementById("reponse").innerHTML = `it was ${resultat}`;

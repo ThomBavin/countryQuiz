@@ -1,10 +1,12 @@
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  list-style: none;
+
   font-size: medium;
 }
-
+ul li {
+  list-style-position: inside;
+}
 body {
   text-align: center;
 
@@ -14,6 +16,7 @@ body {
   background-size: 400% 400%;
   animation: gradient 8s ease infinite;
   height: 100vh;
+  overflow-y: hidden;
 }
 @keyframes gradient {
   0% {
@@ -31,7 +34,7 @@ body {
   width: 60vw;
 
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.774);
+  background-color: rgb(255, 255, 255);
   padding: 1vh;
   /* margin-top: 1vh;
   margin-left: 10vh;
@@ -62,4 +65,13 @@ button {
   position: relative;
 
   top: -60px;
+}
+.boxInfo {
+  margin: auto;
+  width: 10vw;
+
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  padding: 1vh;
+  text-align: center;
 }
