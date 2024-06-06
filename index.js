@@ -119,6 +119,7 @@ async function main(newValue) {
     document.querySelector(".counter").appendChild(counterHtml);
     let clicked = false;
     //ici countdown
+
     let alerted10;
     let alerted7;
     let alerted5;

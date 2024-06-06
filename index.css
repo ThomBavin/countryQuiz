@@ -45,7 +45,7 @@ body {
 }
 button {
   padding: 30px;
-  margin: 20px;
+
   background-color: black;
   color: white;
   border: 1px solid black;
@@ -80,6 +80,13 @@ button {
 .footer {
   color: white;
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.704);
+
+  justify-content: center;
+
+  text-align: center;
 }
