@@ -178,7 +178,7 @@ async function main(newValue) {
         }
       }, 1000);
     }
-    startCountdown(countdown);
+
     function testR() {
       clicked = true;
       if (randomC == 0) {
@@ -288,7 +288,7 @@ async function main(newValue) {
       imagejavascript.className = "imgToC";
 
       document.querySelector("#Container").appendChild(imagejavascript);
-
+      startCountdown(countdown);
       btnR.addEventListener("click", testR, true);
       btnW.addEventListener("click", testW);
     } else {
@@ -314,7 +314,7 @@ async function main(newValue) {
       br.className = "jump";
       document.querySelector("#box").appendChild(br);
       document.querySelector("#Container").appendChild(imagejavascript);
-
+      startCountdown(countdown);
       btnR.addEventListener("click", testR);
       btnW.addEventListener("click", testW);
     }
