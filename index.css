@@ -10,7 +10,7 @@ body {
 
   color: black;
 
-  background: linear-gradient(-45deg, #222222, #ff0000, #9000ff, #eeff00);
+  background: linear-gradient(-45deg, #222222, #00ff33, #9000ff, #eeff00);
   background-size: 400% 400%;
   animation: gradient 8s ease infinite;
   height: 100vh;
@@ -44,8 +44,8 @@ body {
   margin: 10px auto 0;
 }
 button {
-  padding: 30px;
-
+  padding: 20px;
+  margin: auto;
   background-color: black;
   color: white;
   border: 1px solid black;
@@ -58,12 +58,11 @@ button {
   background-color: rgba(255, 255, 255, 0.475);
   width: 40vw;
   height: auto;
-  margin: 5vh;
 }
 #Container {
   position: relative;
 
-  top: -60px;
+  top: -10px;
 }
 .boxInfo {
   margin: auto;
@@ -85,8 +84,6 @@ button {
   width: 100%;
 
   background-color: rgba(0, 0, 0, 0.704);
-
-  justify-content: center;
 
   text-align: center;
 }
