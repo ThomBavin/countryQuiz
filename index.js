@@ -4,7 +4,12 @@ let btnAll = document.querySelector(".ok");
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+let alerted10;
+let alerted7;
+let alerted5;
+let alerted3;
 
+let countdown = 15;
 // const apiUrl = "./codes.json";
 let counterR = 0;
 
@@ -118,14 +123,10 @@ async function main(newValue) {
 
     document.querySelector(".counter").appendChild(counterHtml);
     let clicked = false;
-    //ici countdown
 
-    let alerted10;
-    let alerted7;
-    let alerted5;
-    let alerted3;
-
-    let countdown = 15;
+    if (counterR <= 10) {
+      countdown = 15;
+    }
     if (counterR >= 10) {
       if (alerted10 !== true) {
         alerted10 = true;
@@ -183,10 +184,10 @@ async function main(newValue) {
       clicked = true;
       if (randomC == 0) {
         let resultat = valueCountry;
-        document.getElementById("reponse").innerHTML = ` ${resultat}`;
+        document.getElementById("reponse").innerHTML = `<p> ${resultat} </p>`;
       } else {
         let resultat = valueCountry2;
-        document.getElementById("reponse").innerHTML = ` ${resultat}`;
+        document.getElementById("reponse").innerHTML = `<p> ${resultat} </p>`;
       }
 
       let nextButton = document.createElement("button");
@@ -226,12 +227,14 @@ async function main(newValue) {
       clicked = true;
       if (randomC == 0) {
         let resultat = valueCountry;
-        document.getElementById("reponse").innerHTML = `it was ${resultat}`;
+        document.getElementById(
+          "reponse"
+        ).innerHTML = `<p>it was ${resultat} </p>`;
       } else {
         let resultat = valueCountry2;
         document.getElementById(
           "reponse"
-        ).innerHTML = `<p>it was ${resultat} <p>`;
+        ).innerHTML = `<p>it was ${resultat} </p>`;
       }
 
       let nextButton = document.createElement("button");
