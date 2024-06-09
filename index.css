@@ -67,7 +67,7 @@ button {
 .boxInfo {
   margin: auto;
   width: 20vw;
-
+  min-width: 40vh;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   padding: 1vh;
@@ -82,8 +82,9 @@ button {
   left: 0;
   bottom: 0;
   width: 100%;
-
+  padding: -10vh;
   background-color: rgba(0, 0, 0, 0.704);
-
+}
+.footer > p {
   text-align: center;
 }

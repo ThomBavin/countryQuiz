@@ -165,7 +165,7 @@ async function main(newValue) {
       countdownHtml.className = "CountSet";
       document.getElementById("box").appendChild(countdownHtml);
 
-      const interval = setInterval(() => {
+      let interval = setInterval(() => {
         if (clicked == false) {
           countdownHtml.innerHTML = counter;
           counter--;
