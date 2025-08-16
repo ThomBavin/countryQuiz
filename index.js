@@ -85,7 +85,7 @@ function checkVal() {
     main(true);
   }
 }
-let counterBalance = 10;
+let counterBalance = 60;
 let alerted10;
 let alerted7;
 let alerted5;
