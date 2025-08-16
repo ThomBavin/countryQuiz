@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flag</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon-16x16.png" />
+    <link
+      rel="stylesheet"
+      href="
+    index.css"
+    />
+  </head>
+  <body>
+    <article>
+    <div id="box">
+      <h1>Guess the flag</h1>
+      <div class="counterBalance"></div>
+      <div class="counter"></div>
+      <div class="ok"></div>
+      <p id="reponse"></p>
+    </div>
+    <div id="Container"></div>
+    <br />
+    <div class="boxInfo">
+      <h2>
+        Click on the right button before the timeout!<br />
+        Becareful to the Balance counter the game will stopped when u reach 60
+        SEC
+      </h2>
+
+      <ul>
+        <li>0-10 point = <b>8 SEC</b></li>
+        <li>+ 10 point = <b>5 SEC</b></li>
+        <li>+ 15 point = <b>4 SEC</b></li>
+        <li>+ 20 point = <b>3 SEC</b></li>
+        <li>+ 30 point = <b>2 SEC</b></li>
+      </ul>
+    </div>
+    <div class="boxInfo">
+      <div class="boxInfo2"></div>
+      <h3>
+        <br />Best Record:
+        <div class="bestR"></div>
+      </h3>
+    </div>
+    <div  class"bestR2"></div>
+    </article>
+    <footer class="footer">
+      <div class="footerBye"><p>By Bavinsoula Thomas</p></div>
+      
+      <button onClick="window.location.reload();">Restart</button>
+      <button onClick="deleteAllCookies()" class="ResetBu">
+        Reset All Record
+      </button>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
